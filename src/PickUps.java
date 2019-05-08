@@ -1,6 +1,6 @@
-public class PickUps extends Entity {
+public class PickUps extends Object {
 
-    public int SmallPotion(){
+    public int smallPotion(){
         if(health+25 <=75)
             health += 25;
 
@@ -11,7 +11,7 @@ public class PickUps extends Entity {
 
     }
 
-    public int MediumPotion(){
+    public int mediumPotion(){
         if(health+50 <=50) {
             health += 50;
         }
@@ -21,7 +21,7 @@ public class PickUps extends Entity {
         return getHealth();
     }
 
-    public int LargePotion(){
+    public int largePotion(){
         health = 100;
         return getHealth();
     }
