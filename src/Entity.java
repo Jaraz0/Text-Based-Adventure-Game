@@ -20,7 +20,6 @@ public abstract class Entity {
     public double getArmor() {
         return armor;
     }
-
     public int getAttack(){
         return attack;
 
