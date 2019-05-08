@@ -20,6 +20,8 @@ public class Dungen_Gen {
     //Preset Map
     private void GenMap(int[][] map){
 
+        //test
+
 
         map[3][1] = 1;
         map[2][1] = 2;
