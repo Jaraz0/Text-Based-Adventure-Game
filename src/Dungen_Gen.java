@@ -1,17 +1,14 @@
-//test
-
-import java.util.Map;
 
 public class Dungen_Gen {
 
-    static int Row = 4;
-    static int Column = 4;
-    static int MapSize = 10;
-
-    public static void main (String[] args) {
+    private static int Column, Row;
 
 
+    public void CreateMap(int column, int row){
 
+        Column = column;
+        Row = row;
+        //Creates 2D Array for Map
         int[][] dungeon = new int[Column][Row];
 
         GenMap(dungeon);
@@ -19,8 +16,13 @@ public class Dungen_Gen {
     }
 
 
-    public static void GenMap(int[][] map){
-        int roomNum = 0;
+
+    //Preset Map
+    private void GenMap(int[][] map){
+
+        //test
+
+
         map[3][1] = 1;
         map[2][1] = 2;
         map[1][1] = 3;
@@ -31,37 +33,36 @@ public class Dungen_Gen {
 
         //map[(int)(Math.random() * Column)][(int)(Math.random() * Row)] = 2;
 
-        roomNum += 1;
-
-
         }
 
-
-
-
-
-
-    public static void PrintMap(int[][] map){
+            //Draws the map to console
+    public void PrintMap(int[][] map){
             for (int[] column : map) {
+
+                //Draws top lines
                 System.out.print(" ");
                 for (int i = 0; i < Row; i++)
                     System.out.print("─── ");
                 System.out.println();
 
+                //Draws side lines and rooms
                 for (int row : column) {
                     System.out.print("│");
                     if (row != 0) {
-                        System.out.print(" x ");
-                        //System.out.print(" " + row + " ");
+                        System.out.print(" x "); //Rooms are x's
+                        //System.out.print(" " + row + " "); //Rooms are the room numbers
                     } else System.out.print("   ");
 
                 }
+                //Last side line
                 System.out.print("│\n");
             }
+            //Bottom line
         System.out.print(" ");
         for (int i = 0; i < Row; i++)
             System.out.print("─── ");
-        }
+        System.out.println();
+    }
 }
 
 
