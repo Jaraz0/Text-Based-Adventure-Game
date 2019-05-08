@@ -5,7 +5,7 @@ public abstract class Entity {
     double armor = 0.0;
 
 
-    public Entity (int eHealth, int eAttack, double eArmor)
+    public Entity (int eHealth, int eAttack, double eArmor, String Name0)
     {
         health = eHealth;
         attack = eAttack;
