@@ -6,7 +6,7 @@
  */
 public class Player extends Entity {
 
-    int level;
+     private int level;
 
 
     /**
@@ -20,7 +20,7 @@ public class Player extends Entity {
      */
     public Player(int health, int attack, double armor, String name)
     {
-        super(health, attack, armor, name, 0); //constructor of Entity superclass
+        super(health, attack, armor, name, 0, 5); //constructor of Entity superclass
         level = 1;
     }
 
@@ -28,19 +28,31 @@ public class Player extends Entity {
      * Sets Entity's level based on the value of experience.
      *
      */
-    public void levelUp()
+    public void setLevel()
     {
-       /* if(experience >= 3) level = 2;
-        if(experience >= 6) level = 3;
-        if(experience >= 9) level = 4;
-        if(experience >= 12) level = 5;
-        if(experience >= 15) level = 6;
-        if(experience >= 18) level = 7;
-        if(experience >= 21) level = 8;
-        if(experience >= 24) level = 9;
-        if(experience >= 27) level = 10;
+        int exp = super.getExperience(); // sets exp to Player's experience
+        if(exp >= 3) level = 2;
+        if(exp >= 6) level = 3;
+        if(exp >= 9) level = 4;
+        if(exp >= 12) level = 5;
+        if(exp >= 15) level = 6;
+        if(exp >= 18) level = 7;
+        if(exp >= 21) level = 8;
+        if(exp >= 24) level = 9;
+        if(exp >= 27) level = 10;
         else level = 1;
-        */
+
+    }
+
+    /**
+     * Gets the value of Entity's level.
+     *
+     * @return level -- the level of the Entity.
+     *
+     */
+    public void getLevel()
+    {
+       return level;
     }
 
     /**
@@ -49,9 +61,10 @@ public class Player extends Entity {
      * @param  exp the amount to be added to experience
      *
      */
-    public void addExperience(int exp)
+    public void addExperience(int exp) //use to collect experience from foes ie player.addExperience(foe.getExperience());
     {
         super.setExperience(super.getExperience()+exp);
+        System.out.println("you gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
     }
 }
 

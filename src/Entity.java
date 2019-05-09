@@ -10,15 +10,27 @@ public abstract class Entity {
    private int damage, attack, experience;
    private double armor = 0.0;
    private String name;
+   Object[] inventory;
 
-
-    public Entity (int eHealth, int eAttack, double eArmor, String eName, int exp)
+    /**
+     * Constructor for Entity objects.
+     *
+     * @param eHealth
+     * @param eAttack
+     * @param eArmor
+     * @param eName
+     * @param exp
+     * @param numItems -- number of inventory items for the entity object.
+     *
+     */
+    public Entity (int eHealth, int eAttack, double eArmor, String eName, int exp, int numItems)
     {
         health = eHealth;
         attack = eAttack;
         armor = eArmor;
         name = eName;
         experience = exp;
+        inventory = new Object[numItems];
     }
 
     /**
