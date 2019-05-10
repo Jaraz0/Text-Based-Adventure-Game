@@ -50,7 +50,7 @@ public class Player extends Entity {
      * @return level -- the level of the Entity.
      *
      */
-    public void getLevel()
+    public int getLevel()
     {
        return level;
     }
@@ -66,7 +66,21 @@ public class Player extends Entity {
         super.setExperience(super.getExperience()+exp);
         System.out.println("you gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
     }
+
+    public void setArmor(double a)
+    {
+        super.setArmor(this.getArmor() + a);
+    }
+
+    public void setAttack(int b)
+    {
+        super.setAttack(this.getAttack() + b);
+    }
+
+
 }
+
+
 
 
 

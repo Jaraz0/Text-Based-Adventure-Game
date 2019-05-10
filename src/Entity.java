@@ -15,7 +15,7 @@ public abstract class Entity {
     /**
      * Constructor for Entity objects.
      *
-     * @param eHealth
+     * @param eHealth -amount of hitpoints on the entitiy.
      * @param eAttack
      * @param eArmor
      * @param eName
@@ -86,6 +86,7 @@ public abstract class Entity {
     public void setArmor(double a)
     {
         armor = a;
+
     }
 
     /**
@@ -97,25 +98,60 @@ public abstract class Entity {
     {
         return name;
     }
+    /**
+     * Returns the Name of the player.
+     *
+     * @return  name -- the String that is the name of the player.
+     *
+     */
 
     public int getHealth() {
         return health;
     }
 
-    public double getArmor() {
+    /**
+     * Returns the Entity's Health
+     *
+     * @return  health -- the amount of hitpoints the Entity has.
+     *
+     */
+
+    public int getAttack()
+
+    {
+        return attack;
+    }
+
+    /**
+     * Returns the amount of damage given.
+     *
+     * @return  attack -- the amount the hitpoints taken away from the Entity.
+     *
+     */
+
+    public double getArmor()
+    {
         return armor;
     }
-    public int getAttack(){
-        return attack;
 
-    }
+    /**
+     * Returns the value of the Armor.
+     *
+     * @armor -- the value that reduces the amount of hitpoints received.
+     *
+     */
 
     public int Attacking( int inflicted) {
         health -= (inflicted - (int) armor * 10) ;
         return health;
-
     }
 
+    /**
+     * Calculates the amount of hitpoints after the Entity is attacked
+     *
+     * @health  athe amount of hitpoints that remains on the Entity.
+     *
+     */
 
 
 }
