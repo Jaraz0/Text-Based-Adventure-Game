@@ -11,7 +11,7 @@ public class Potions extends Object {
 
     public int smallPotion(){
         ammountHealed = 25;
-        return ammountHealed;
+        return ammountHealed;`
     }
 
 
