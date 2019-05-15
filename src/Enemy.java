@@ -15,5 +15,11 @@ public class Enemy extends Entity
 
     }
 
+    Enemy skeletonMinion = new Enemy(20, 5, 0.0, "Skeleton", 5, 3);
 
+
+    Enemy gremlin = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+
+    Enemy Buddy= new Enemy (20, 1, 0.0 , "MikeyG", 1000000, 3);
 }
+
