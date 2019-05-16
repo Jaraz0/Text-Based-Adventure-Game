@@ -7,6 +7,7 @@
 public class Player extends Entity {
 
      private int level;
+     public static int x, y;
 
 
     /**
@@ -22,6 +23,8 @@ public class Player extends Entity {
     {
         super(health, attack, armor, name, 0, 5); //constructor of Entity superclass
         level = 1;
+        x = 1;
+        y = 3;
     }
 
     /**
