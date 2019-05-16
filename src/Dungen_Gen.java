@@ -1,7 +1,7 @@
 /**
  * Write a description of class here.
  *
- * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
+ * @author (Jordan "JAM" Mraz  , Alec "Buddy" Henry, Michael "Mikey G" Gery, Jonathan "Carter" Casper)
  * @version (5/8/2019)
  */
 public class Dungen_Gen {

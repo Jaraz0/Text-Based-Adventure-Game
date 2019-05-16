@@ -64,7 +64,7 @@ public class Player extends Entity {
     public void addExperience(int exp) //use to collect experience from foes ie player.addExperience(foe.getExperience());
     {
         super.setExperience(super.getExperience()+exp);
-        System.out.println("you gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
+        System.out.println("You gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
     }
 
     public void setArmor(double a)
@@ -79,11 +79,3 @@ public class Player extends Entity {
 
 
 }
-
-
-
-
-
-
-// public player(int health, int armor, int )
-
