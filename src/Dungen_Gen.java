@@ -7,7 +7,7 @@
 import java.util.Scanner;
 public class Dungen_Gen {
 
-    Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
     private static int row, col;
     public static int[][] dungeon;
 
@@ -20,7 +20,7 @@ public class Dungen_Gen {
         dungeon = new int[row][col];
 
         GenMap(dungeon);
-        PrintMap(dungeon);
+        printMap(dungeon);
     }
 
 
@@ -31,7 +31,7 @@ public class Dungen_Gen {
         //test
 
 
-        map[3][1] = 1;
+        map[3][1] = 5;
         map[2][1] = 1;
         map[1][1] = 2;
         map[0][1] = 3;
@@ -69,8 +69,8 @@ public class Dungen_Gen {
         System.out.println();
     }*/
 
-    //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled/empty
-    public void PrintMap(int[][] map) {
+    //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled/empty; 5 - current position
+    public static void printMap(int[][] map) {
         for (int[] r : map) {
             for (int c : r)
                 System.out.print(c + " ");
@@ -78,15 +78,43 @@ public class Dungen_Gen {
         }
     }
 
-    public void move(){
+    public static void move(){
         System.out.println("Pick a direction to move: up, down, left, or right");
         String choice = scan.next();
-        if(choice.equalsIgnoreCase("up") && (dungeon[Player.y][Player.x] == 0)){
-            if(dungeon[Player.y][Player.x] == 1 ||dungeon[Player.y][Player.x] == 4) Player.y -= 1;
-            else if (dungeon[Player.y][Player.x] == 2) Player.y -= 1; //fight()
-            else if (dungeon[Player.y][Player.x] == 3) Player.y -= 1; //loot()
-            else System.out.println("You can't go there");
+        //Up
+        if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
+            Player.y -= 1;
+            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
+
+        //Down
+        else if(choice.equalsIgnoreCase("down") && (dungeon[Player.y + 1][Player.x] != 0)) {
+            Player.y += 1;
+            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+        }
+
+        //Left
+        else if(choice.equalsIgnoreCase("left") && (dungeon[Player.y][Player.x - 1] != 0)) {
+            Player.x -= 1;
+            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+        }
+
+        //Right
+        else if(choice.equalsIgnoreCase("right") && (dungeon[Player.y][Player.x + 1] != 0)) {
+            Player.x += 1;
+            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+        }
+
+
+        else System.out.println("You can't go there");
+
+        dungeon[Player.y][Player.x] = 5;
+
+        printMap(dungeon);
     }
 
 }

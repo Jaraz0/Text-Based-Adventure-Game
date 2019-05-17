@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 public class Battle {
 
-    Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
 
-    int playerChoice = 0;
-    int inflicted = 0;
+    static int playerChoice = 0;
+    static int inflicted = 0;
 
-    public int getPlayerChoice() {
+    public static int getPlayerChoice() {
 
         System.out.println("\nWhat will you decide?\n" +
                 "[1] Attack\n[2] Guard\n [3] Potion");
@@ -19,13 +19,13 @@ public class Battle {
 
     }
 
-    public void fight(Entity player1, Entity JAMinator) {
+    public static void fight(Entity player1, Entity JAMinator) {
 
         System.out.println(player1.getName() + "approaches the menacing " + JAMinator + ".\n" +
                 player1.getName() + "can deal" + player1.getAttack() + " hitpoints of damage.\nBut" + JAMinator.getName()
                 + "can deal" + JAMinator.getAttack() + "hitpoints of damage.");
 
-        while (player1.getHealth() > 0 || JAMinator.getHealth() > 0) {
+        while (player1.getHealth() > 0 && JAMinator.getHealth() > 0) {
             if (playerChoice == 1) {
 
                 JAMinator.setHealth(player1.getAttack() - ((int) JAMinator.getArmor() * 10));

@@ -22,8 +22,11 @@ public class GameRun {
 
         Map.CreateMap(4,4);
 
+        while(aaaa.getHealth() > 0) {
+            Dungen_Gen.dungeon[Player.y][Player.x] = 4;
+            Dungen_Gen.move();
 
-
-
+        }
+        System.out.println("Game Over.");
     }
 }
