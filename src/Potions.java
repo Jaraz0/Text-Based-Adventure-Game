@@ -4,6 +4,7 @@
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)
 
+**/
 
 public class Potions extends Object {
 
@@ -12,7 +13,7 @@ public class Potions extends Object {
 
     public int smallPotion(){
         ammountHealed = 25;
-        return ammountHealed;`
+        return ammountHealed;
     }
 
 
@@ -29,4 +30,3 @@ public class Potions extends Object {
 
 
 }
- */

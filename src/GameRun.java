@@ -15,6 +15,20 @@ public class GameRun {
 
 
 
+        Enemy skeletonMinion = new Enemy(20, 5, 0.0, "Skeleton", 5, 3);
+
+        Enemy gremlin = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+
+        Enemy Buddy = new Enemy (20, 1, 0.0 , "MikeyG", 1000000, 3);
+
+        Objects staterSword = new Objects("Basic Sword", 5,0);
+
+        Objects medSword = new Objects("Iron Sword", 15, 0.0);
+
+        Objects medhighSword = new Objects("Elucidator",25, 0.0);
+
+        Objects godSword = new Objects("Excalibur", 50, 0.0);
+
 
         //Game
         System.out.println("Welcome to \"Please Give Us An A.\" What is your name?");
