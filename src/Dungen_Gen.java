@@ -72,16 +72,38 @@ public class Dungen_Gen {
     //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled/empty; 5 - current position
     public static void printMap(int[][] map) {
         for (int[] r : map) {
-            for (int c : r)
-                System.out.print(c + " ");
+
+            //Draws top lines
+            System.out.print(" ");
+            for (int i = 0; i < col; i++)
+                System.out.print("─── ");
             System.out.println();
+
+            //Draws side lines and rooms
+            for (int c : r) {
+                System.out.print("│");
+                if (c != 0) {
+                    System.out.print(" x "); //Rooms are x's
+                    //System.out.print(" " + row + " "); //Rooms are the room numbers
+                } else System.out.print("   ");
+
+            }
+            //Last side line
+            System.out.print("│\n");
         }
+        //Bottom line
+        System.out.print(" ");
+        for (int i = 0; i < col; i++)
+            System.out.print("─── ");
+        System.out.println();
     }
 
     public static void move(){
-        System.out.println("Pick a direction to move: up, down, left, or right");
+        System.out.println("Pick a direction to move: " + possibeMoves());
         String choice = scan.next();
+
         //Up
+
         if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
             Player.y -= 1;
             if (dungeon[Player.y][Player.x] == 2) ; //fight()
@@ -109,13 +131,69 @@ public class Dungen_Gen {
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
-
         else System.out.println("You can't go there");
+
+        //System.out.println(dungeon[Player.y][Player.x]);
 
         dungeon[Player.y][Player.x] = 5;
 
         printMap(dungeon);
     }
+    public static String possibeMoves(){
+            String possibleMoves = "";
+
+
+        //Up
+
+
+        try {
+            if(dungeon[Player.y-1][Player.x] != 0 || Player.y == 0){
+                possibleMoves += "Up, ";
+            }
+        }
+        catch (Exception ArrayIndexOutOfBoundsException){
+
+        }
+
+
+        //Down
+        try {
+            if(Player.y == dungeon.length || dungeon[Player.y+1][Player.x] != 0) {
+                possibleMoves += "Down, ";
+            }
+        }
+        catch (Exception ArrayIndexOutOfBoundsException){
+
+        }
+
+        //Left
+        try {
+            if(Player.x == 0 || dungeon[Player.y][Player.x-1] != 0) {
+                possibleMoves += "Left, ";
+            }
+        }
+        catch (Exception ArrayIndexOutOfBoundsException){
+
+        }
+
+
+        //Right
+        try {
+            if(Player.x == dungeon[0].length || dungeon[Player.y][Player.x+1] != 0) {
+                possibleMoves += "Right, ";
+            }
+        }
+        catch (Exception ArrayIndexOutOfBoundsException){
+
+        }
+
+        //System.out.println(dungeon[Player.y][Player.x]);
+
+        return possibleMoves.substring(0, possibleMoves.length()-2);
+
+    }
+
+
 
 }
 

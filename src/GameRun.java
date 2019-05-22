@@ -6,6 +6,7 @@ import java.util.Scanner;
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)
  */
+
 public class GameRun {
     public static void main (String[] args) {
 
@@ -32,12 +33,15 @@ public class GameRun {
 
         //Game
         System.out.println("Welcome to \"Please Give Us An A.\" What is your name?");
-        Entity aaaa = new Player(100, 10, 20, scan.next());
 
-        Map.CreateMap(4,4);
 
-        while(aaaa.getHealth() > 0) {
+        Entity lDogOG = new Player(100, 10, 20, scan.next());
+
+        Map.CreateMap(5,5);
+
+        while(lDogOG.getHealth() > 0) {
             Dungen_Gen.dungeon[Player.y][Player.x] = 4;
+
             Dungen_Gen.move();
 
         }
