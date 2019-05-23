@@ -13,6 +13,8 @@ public class Battle {
     static int playerChoice = 0;
     static int inflicted = 0;
 
+    public static int enHealth =0;
+
     public static int getPlayerChoice() {
 
         System.out.println("What will you decide?\n" +
@@ -42,7 +44,7 @@ public class Battle {
                 inflicted = ((int)(JAMinator.getAttack() - JAMinator.getAttack() * (player1.getArmor() / 100)));
                 player1.setHealth(player1.getHealth() - inflicted);
                 System.out.println("\n" + JAMinator.getName() + " inflicts " + inflicted + " points of damage on you.\n--------------------------------------------------------------");
-                System.out.println("You have " + player1.getHealth() + " health remaining");
+                System.out.println("You have " + player1.getHealth() + " health remaining\n--------------------------------------------------------------");
 
 
             } else if (
@@ -83,11 +85,13 @@ public class Battle {
 
             else if(JAMinator.getHealth() <= 0)
             {
-                System.out.println("After an intense battle, "+ player1.getName() + " defeated " + JAMinator.getName() + ".");
+                System.out.println("\nAfter an intense battle, "+ player1.getName() + " defeated " + JAMinator.getName() + ".\n");
                 //Add code to progress and move on.
                 player1.addExperience(JAMinator.getExperience());
                 player1.setLevel();
                 System.out.println(player1.getName() + " gained " + JAMinator.getExperience() + " and is now level " + player1.getLevel() + ".");
+
+
             }
 
 

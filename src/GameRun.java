@@ -39,6 +39,7 @@ public class GameRun {
         enemies[2] = new Enemy(30, 10, 0.0, "Buddy", 11, 2);
 
         enemies[3] = new Enemy(60, 3, 0.0, "Big Al", 4, 2 );
+
         enemies[4] = new Enemy(20, 5, 0.0, "Skeleton Archer", 5, 3);
 
         enemies[5] = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );

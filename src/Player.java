@@ -70,7 +70,7 @@ public class Player extends Entity {
     public int getLevel()
     {
         if(this.level > this.currentLevel)
-            System.out.println(this.getName()+"leveled up and gained +2 attack and +4 health!");
+            System.out.println(this.getName()+" leveled up and gained +2 attack and +4 health!");
         return level;
     }
 
@@ -83,7 +83,8 @@ public class Player extends Entity {
     public void addExperience(int exp) //use to collect experience from foes ie player.addExperience(foe.getExperience());
     {
         super.setExperience(super.getExperience()+exp);
-        System.out.println("You gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
+        System.out.println("You gained "+ exp + " experience!\nTotal Experience: " + super.getExperience());
+        System.out.println();
     }
 
     /**
