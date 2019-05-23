@@ -1,5 +1,5 @@
 /**
- * Write a description of class here.
+ * Contains methods that interact with the rooms in the game.
  *
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)

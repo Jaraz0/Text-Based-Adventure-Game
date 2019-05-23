@@ -1,5 +1,5 @@
 /**
- * Write a description of class here.
+ * This class contains methods that interact with the various entities in the game .
  *
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)
@@ -15,11 +15,11 @@ public abstract class Entity {
     /**
      * Constructor for Entity objects.
      *
-     * @param eHealth -amount of hitpoints on the entitiy.
-     * @param eAttack
-     * @param eArmor
-     * @param eName
-     * @param exp
+     * @param eHealth -amount of hitpoints on the entity.
+     * @param eAttack - amount of hitpoints taken away from the opponent.
+     * @param eArmor - reduces the amount of hitpoints taken away from an attack.
+     * @param eName - name of the entity.
+     * @param exp - amount of experience that will level up the player.
      * @param numItems -- number of inventory items for the entity object.
      *
      */
@@ -39,6 +39,7 @@ public abstract class Entity {
      * @param  h -- the amount the health is being set to.
      *
      */
+
     public void setHealth(int h)
     {
         health = h;
@@ -61,6 +62,7 @@ public abstract class Entity {
      * @param  exp -- the amount the experience is being set to.
      *
      */
+
     public void setExperience(int exp)
     {
         experience = exp;
@@ -69,39 +71,34 @@ public abstract class Entity {
     /**
      * Returns the value stored in the Entity's experience variable.
      *
-     * @return the experience of the Entity.
+     * @param exp experince of the entity that will level up the player.
      */
     public int getExperience()
     {
         return experience;
     }
 
-
     /**
      * Sets Entity's armor to specified amount.
      *
      * @param  a -- the amount the armor is being set to.
-     *
      */
-    public void setArmor(double a)
-    {
-        armor = a;
-
-    }
+    public void setArmor(double a) { armor = a; }
 
     /**
      * Returns the string stored in the entity's name variable.
      *
-     * @return the name of the entity.
+     * @return name-- the name of the entity.
      */
     public String getName()
     {
         return name;
     }
+
     /**
-     * Returns the Name of the player.
+     * Returns the Entity's Health
      *
-     * @return  name -- the String that is the name of the player.
+     * @return  health -- the amount of hitpoints the Entity has.
      *
      */
 
@@ -110,9 +107,9 @@ public abstract class Entity {
     }
 
     /**
-     * Returns the Entity's Health
+     * Returns the amount of damage given.
      *
-     * @return  health -- the amount of hitpoints the Entity has.
+     * @return  attack -- the amount the hitpoints taken away from the Entity.
      *
      */
 
@@ -123,9 +120,9 @@ public abstract class Entity {
     }
 
     /**
-     * Returns the amount of damage given.
+     * Returns the value of the Armor.
      *
-     * @return  attack -- the amount the hitpoints taken away from the Entity.
+     * @return the value that reduces the amount of hitpoints received.
      *
      */
 
@@ -135,9 +132,9 @@ public abstract class Entity {
     }
 
     /**
-     * Returns the value of the Armor.
-     *
-     * @armor -- the value that reduces the amount of hitpoints received.
+     * Calculates the amount of hitpoints after the Entity is attacked
+     * @param inflicted-- amount of the attack of the opponent.
+     * @return the amount of hitpoints that remains on the Entity after the attack.
      *
      */
 
@@ -146,12 +143,7 @@ public abstract class Entity {
         return health;
     }
 
-    /**
-     * Calculates the amount of hitpoints after the Entity is attacked
-     *
-     * @health  athe amount of hitpoints that remains on the Entity.
-     *
-     */
+
 
 
 }

@@ -75,7 +75,7 @@ public class Battle {
 
             }
 
-            else if(JAMinator.getHealth() == 0)
+            else if(JAMinator.getHealth() <= 0)
             {
                 System.out.println("After an intense battle, "+ player1.getName() + " defeated " + JAMinator.getName() + ".");
                 //Add code to progress and move on.
