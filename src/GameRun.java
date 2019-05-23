@@ -78,7 +78,7 @@ public class GameRun {
             Dungeon.dungeon[Player.y][Player.x] = 5;
             currentRoom = 5;
             while (currentRoom == 5) {
-                System.out.print("Please enter an action (move, map, help): \t");
+                System.out.print("Please enter an action (move, map, quit): \t");
                 DoSomething(scan.next());
             }
         }
