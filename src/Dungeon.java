@@ -93,7 +93,7 @@ public class Dungeon {
         if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.y -= 1;
-            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.Buddy);
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
@@ -109,7 +109,7 @@ public class Dungeon {
         else if(choice.equalsIgnoreCase("left") && (dungeon[Player.y][Player.x - 1] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.x -= 1;
-            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.Buddy);
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 

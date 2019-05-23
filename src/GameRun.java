@@ -10,6 +10,9 @@ import java.util.Scanner;
 public class GameRun {
     public String command;
     public static int currentRoom;
+    public static Enemy Buddy;
+    public static Player lDogOG;
+
     public static void main (String[] args) {
 
         //Variables and shizz
@@ -22,7 +25,7 @@ public class GameRun {
 
         Enemy gremlin = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
 
-        Enemy Buddy = new Enemy (20, 1, 0.0 , "MikeyG", 1000000, 3);
+        Buddy = new Enemy (10, 1, 0.0 , "MikeyG", 1000000, 3);
 
         Objects staterSword = new Objects("Basic Sword", 5,0);
 
@@ -37,7 +40,7 @@ public class GameRun {
         System.out.print("Welcome to \"Please Give Us An A.\" What is your name?:\t");
 
 
-        Entity lDogOG = new Player(100, 10, 20, scan.next());
+        lDogOG = new Player(100, 10, 20, scan.next());
 
         Map.CreateMap(7,7, lDogOG.getName());
 
