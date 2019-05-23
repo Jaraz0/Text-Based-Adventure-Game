@@ -8,6 +8,8 @@ public class Player extends Entity {
 
      private int level;
      public static int x, y;
+    private int currentLevel;
+
 
 
     /**
@@ -22,7 +24,7 @@ public class Player extends Entity {
     public Player(int health, int attack, double armor, String name)
     {
         super(health, attack, armor, name, 0, 5); //constructor of Entity superclass
-        level = 1;
+        level = 0;
         x = 3;
         y = 6;
     }
@@ -34,17 +36,29 @@ public class Player extends Entity {
     public void setLevel()
     {
         int exp = super.getExperience(); // sets exp to Player's experience
-        if(exp >= 3) level = 2;
-        if(exp >= 6) level = 3;
-        if(exp >= 9) level = 4;
-        if(exp >= 12) level = 5;
-        if(exp >= 15) level = 6;
-        if(exp >= 18) level = 7;
-        if(exp >= 21) level = 8;
-        if(exp >= 24) level = 9;
-        if(exp >= 27) level = 10;
-        else level = 1;
+//        if(exp >= 3) level = 2;
+//        if(exp >= 6) level = 3;
+//        if(exp >= 9) level = 4;
+//        if(exp >= 12) level = 5;
+//        if(exp >= 15) level = 6;
+//        if(exp >= 18) level = 7;
+//        if(exp >= 21) level = 8;
+//        if(exp >= 24) level = 9;
+//        if(exp >= 27) level = 10;
+//        else level = 1;
+        currentLevel = level;
+        level = exp%10;
+        if(this.level > this.currentLevel)
+            this.updateStats();
+    }
 
+     /* Helper method to update player stats upon level up.
+     *
+     */
+    private void updateStats()
+    {
+        super.setAttack(super.getAttack() + 2);
+        super.setHealth(super.getHealth() + 4);
     }
 
     /**
@@ -55,7 +69,9 @@ public class Player extends Entity {
      */
     public int getLevel()
     {
-       return level;
+        if(this.level > this.currentLevel)
+            System.out.println(this.getName()+"leveled up and gained +2 attack and +4 health!");
+        return level;
     }
 
     /**

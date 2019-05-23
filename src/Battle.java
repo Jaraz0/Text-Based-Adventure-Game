@@ -34,10 +34,16 @@ public class Battle {
             Battle.getPlayerChoice();
             if (playerChoice == 1) {
 
-                JAMinator.setHealth(JAMinator.getHealth() - (player1.getAttack() - ((int) JAMinator.getArmor() * 10)));
-                inflicted = (player1.getAttack() - ((int) JAMinator.getArmor() * 10));
-
+                inflicted = (player1.getAttack());
+                JAMinator.setHealth(JAMinator.getHealth() - inflicted);
                 System.out.println("\n" + player1.getName() + " inflicts " + inflicted + " points of damage on " + JAMinator.getName() + ".\n--------------------------------------------------------------");
+                System.out.println(JAMinator.getName() + " has " + JAMinator.getHealth() + " health remaining");
+
+                inflicted = ((int)(JAMinator.getAttack() - JAMinator.getAttack() * (player1.getArmor() / 100)));
+                player1.setHealth(player1.getHealth() - inflicted);
+                System.out.println("\n" + JAMinator.getName() + " inflicts " + inflicted + " points of damage on you.\n--------------------------------------------------------------");
+                System.out.println("You have " + player1.getHealth() + " health remaining");
+
 
             } else if (
                     playerChoice == 2) {
@@ -48,7 +54,7 @@ public class Battle {
                 {
 
                     System.out.println("Player positions to block as much damage as possible.");
-                    player1.setHealth(JAMinator.getAttack() - (((int) JAMinator.getAttack() / 3) + (int) player1.getArmor() * 10));
+                    player1.setHealth(player1.getHealth() - (int)((JAMinator.getAttack() / 3) * (player1.getArmor() / 100)));
                     System.out.println("With "+ player1.getHealth() + " remaining, you manage \n--------------------------------------------------------------");
 
                 }
@@ -79,6 +85,9 @@ public class Battle {
             {
                 System.out.println("After an intense battle, "+ player1.getName() + " defeated " + JAMinator.getName() + ".");
                 //Add code to progress and move on.
+                player1.addExperience(JAMinator.getExperience());
+                player1.setLevel();
+                System.out.println(player1.getName() + " gained " + JAMinator.getExperience() + " and is now level " + player1.getLevel() + ".");
             }
 
 

@@ -104,13 +104,13 @@ public class Dungeon {
     public static void move(){
         System.out.println("Pick a direction to move \"" + possibeMoves() +"\" :\t ");
         String choice = scan.next();
-
+        int enemyNum = (int) Math.random()*6;
         //Up
 
         if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.y -= 1;
-            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.Buddy);
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
@@ -118,7 +118,7 @@ public class Dungeon {
         else if(choice.equalsIgnoreCase("down") && (dungeon[Player.y + 1][Player.x] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.y += 1;
-            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);//fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
@@ -126,7 +126,7 @@ public class Dungeon {
         else if(choice.equalsIgnoreCase("left") && (dungeon[Player.y][Player.x - 1] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.x -= 1;
-            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.Buddy);
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
@@ -134,7 +134,7 @@ public class Dungeon {
         else if(choice.equalsIgnoreCase("right") && (dungeon[Player.y][Player.x + 1] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.x += 1;
-            if (dungeon[Player.y][Player.x] == 2) ; //fight()
+            if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);//fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
         }
 
