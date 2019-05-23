@@ -104,14 +104,19 @@ public class Dungeon {
     public static void move(){
         System.out.println("Pick a direction to move \"" + possibeMoves() +"\" :\t ");
         String choice = scan.next();
-        int enemyNum = (int) Math.random()*6;
+        int enemyNum = (int)(Math.random()*6);
+        int itemNum = (int)(Math.random()*6);
         //Up
 
         if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
             dungeon[Player.y][Player.x] = 4;
             Player.y -= 1;
             if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);
-            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+            if (dungeon[Player.y][Player.x] == 3) GameRun.items[itemNum].loot();
+            if (dungeon[Player.y][Player.x] == 6) {
+                System.out.println("Congratulations you survived the dungeon, thanks for playing");
+                System.exit(0);
+            }
         }
 
         //Down
@@ -119,7 +124,7 @@ public class Dungeon {
             dungeon[Player.y][Player.x] = 4;
             Player.y += 1;
             if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);//fight()
-            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+            if (dungeon[Player.y][Player.x] == 3) GameRun.items[itemNum].loot();
         }
 
         //Left
@@ -127,7 +132,7 @@ public class Dungeon {
             dungeon[Player.y][Player.x] = 4;
             Player.x -= 1;
             if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);
-            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+            if (dungeon[Player.y][Player.x] == 3) GameRun.items[itemNum].loot();
         }
 
         //Right
@@ -135,7 +140,7 @@ public class Dungeon {
             dungeon[Player.y][Player.x] = 4;
             Player.x += 1;
             if (dungeon[Player.y][Player.x] == 2) Battle.fight(GameRun.lDogOG,GameRun.enemies[enemyNum]);//fight()
-            if (dungeon[Player.y][Player.x] == 3) ; //loot()
+            if (dungeon[Player.y][Player.x] == 3) GameRun.items[itemNum].loot();
         }
 
         else System.out.println("You can't go there");

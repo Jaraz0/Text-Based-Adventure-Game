@@ -12,6 +12,8 @@ public class Battle {
 
     static int playerChoice = 0;
     static int inflicted = 0;
+    static int potionsRemaning = 3;
+
 
     public static int enHealth =0;
 
@@ -27,17 +29,17 @@ public class Battle {
     }
 
     public static void fight(Player player1, Enemy JAMinator) {
-
+        int damage = 0;
         System.out.println(player1.getName() + " approaches the menacing " + JAMinator.getName() + ".\n\n" +
                 player1.getName() + " has " + player1.getHealth()  + " health and can deal " + player1.getAttack() + " hitpoints of damage.\n\nBut " + JAMinator.getName() +" has "+  JAMinator.getHealth() +
                 " health and can deal " + JAMinator.getAttack() + " hitpoints of damage.\n--------------------------------------------------------------");
 
-        while (player1.getHealth() > 0 && JAMinator.getHealth() > 0) {
+        while (player1.getHealth() > 0 && JAMinator.getHealth() - damage> 0) {
             Battle.getPlayerChoice();
             if (playerChoice == 1) {
 
                 inflicted = (player1.getAttack());
-                JAMinator.setHealth(JAMinator.getHealth() - inflicted);
+                damage += inflicted;
                 System.out.println("\n" + player1.getName() + " inflicts " + inflicted + " points of damage on " + JAMinator.getName() + ".\n--------------------------------------------------------------");
                 System.out.println(JAMinator.getName() + " has " + JAMinator.getHealth() + " health remaining");
 
@@ -49,8 +51,12 @@ public class Battle {
 
             } else if (
                     playerChoice == 2) {
-                //add in potion code
-                System.out.println(player1.getName() + " recovered " + player1.getHealth() + " points of hitpoints\n--------------------------------------------------------------");
+                if (potionsRemaning > 0) {
+                    player1.setHealth(player1.getHealth() + 20);
+                    potionsRemaning--;
+                    System.out.println(player1.getName() + " recovered 20 points of health, " + potionsRemaning + " potions remaining\n--------------------------------------------------------------");
+                }
+                else System.out.println("No Potions remaining");
 
             } else if (playerChoice == 3) {
                 {

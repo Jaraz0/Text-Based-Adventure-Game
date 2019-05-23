@@ -26,6 +26,7 @@ public class Objects {
          * @param attackStat
          */
 
+
     }
 
 
@@ -66,5 +67,28 @@ public class Objects {
      * @return  objectName -- the name of the object.
      *
      */
+
+    /**
+     * Gives player increased attack or health based on what item they looted.
+     *
+     * @param item -- the item that the player is looting.
+     *
+     */
+
+
+    /**
+     * Gives player increased attack or health based on what item they looted.
+     *
+     *
+     *
+     */
+    public void loot()
+    {
+        System.out.println(GameRun.lDogOG.getName() + " looted "+ objectName +"!");
+        GameRun.lDogOG.setAttack((int)this.getWeapon());
+        System.out.println(GameRun.lDogOG.getName() + " gained "+ this.getWeapon() +" attack.");
+        GameRun.lDogOG.setHealth((GameRun.lDogOG.getHealth() + (int)this.getArmor()));
+        System.out.println(GameRun.lDogOG.getName() + " gained "+ (int)this.getArmor() +" health.");
+    }
 
 }
