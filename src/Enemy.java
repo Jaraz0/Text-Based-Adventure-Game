@@ -1,5 +1,5 @@
 /**
- * Write a description of class here.
+ * This creates the enemy object.
  *
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)
