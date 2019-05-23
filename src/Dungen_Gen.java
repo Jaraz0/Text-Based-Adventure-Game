@@ -10,12 +10,15 @@ public class Dungen_Gen {
     static Scanner scan = new Scanner(System.in);
     private static int row, col;
     public static int[][] dungeon;
+    private static String SplayerName;
 
 
-    public void CreateMap(int rowA, int column){
+    public void CreateMap(int rowA, int column, String playerName){
 
         row = rowA;
         col = column;
+        SplayerName = playerName;
+
         //Creates 2D Array for Map
         dungeon = new int[row][col];
 
@@ -40,35 +43,6 @@ public class Dungen_Gen {
 
         }
 
-            //Draws the map to console
-    /*public void PrintMap(int[][] map){
-            for (int[] r : map) {
-
-                //Draws top lines
-                System.out.print(" ");
-                for (int i = 0; i < col; i++)
-                    System.out.print("─── ");
-                System.out.println();
-
-                //Draws side lines and rooms
-                for (int c : r) {
-                    System.out.print("│");
-                    if (c != 0) {
-                        System.out.print(" x "); //Rooms are x's
-                        //System.out.print(" " + row + " "); //Rooms are the room numbers
-                    } else System.out.print("   ");
-
-                }
-                //Last side line
-                System.out.print("│\n");
-            }
-            //Bottom line
-        System.out.print(" ");
-        for (int i = 0; i < col; i++)
-            System.out.print("─── ");
-        System.out.println();
-    }*/
-
     //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled/empty; 5 - current position
     public static void printMap(int[][] map) {
         for (int[] r : map) {
@@ -82,10 +56,12 @@ public class Dungen_Gen {
             //Draws side lines and rooms
             for (int c : r) {
                 System.out.print("│");
-                if (c != 0) {
-                    System.out.print(" x "); //Rooms are x's
+                if (c == 5) {
+                    System.out.print(" " + nameChar() + " "); //Current room is the first character of the players name
                     //System.out.print(" " + row + " "); //Rooms are the room numbers
-                } else System.out.print("   ");
+                }
+                else if (c == 4) System.out.print(" x ");
+                    else System.out.print("   ");
 
             }
             //Last side line
@@ -96,6 +72,10 @@ public class Dungen_Gen {
         for (int i = 0; i < col; i++)
             System.out.print("─── ");
         System.out.println();
+    }
+
+    private static char nameChar(){
+        return SplayerName.charAt(0);
     }
 
     public static void move(){
@@ -144,17 +124,13 @@ public class Dungen_Gen {
 
 
         //Up
-
-
         try {
             if(dungeon[Player.y-1][Player.x] != 0 || Player.y == 0){
                 possibleMoves += "Up, ";
             }
         }
         catch (Exception ArrayIndexOutOfBoundsException){
-
         }
-
 
         //Down
         try {

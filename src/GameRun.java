@@ -37,7 +37,7 @@ public class GameRun {
 
         Entity lDogOG = new Player(100, 10, 20, scan.next());
 
-        Map.CreateMap(5,5);
+        Map.CreateMap(5,5, lDogOG.getName());
 
         while(lDogOG.getHealth() > 0) {
             Dungen_Gen.dungeon[Player.y][Player.x] = 4;
