@@ -15,7 +15,6 @@ public class GameRun {
     public static Enemy[] enemies;
     public static void main (String[] args) {
 
-        //Variables and shizz
         Scanner scan = new Scanner(System.in);
         Dungeon Map = new Dungeon();
         enemies = new Enemy[7];
