@@ -1,5 +1,6 @@
 /**
- * Write a description of class here.
+ * Creates the map and allows the player to move across it. Depending on the space, it will call the Battle class
+ * to initiate fights.
  *
  * @author (Jordan "JAM" Mraz  , Alec "Buddy" Henry, Michael "Mikey G" Gery, Jonathan "Carter" Casper)
  * @version (5/8/2019)
@@ -12,7 +13,14 @@ public class Dungeon {
     public static int[][] dungeon;
     private static String SplayerName;
 
-
+    /**
+     * Creates the dungeon map
+     *
+     * @param rowA -- the row index for the map
+     * @param column -- the column index of the map
+     * @param playerName -- used to determine what letter to show at player's position
+     *
+     */
     public void CreateMap(int rowA, int column, String playerName){
 
         row = rowA;
@@ -28,7 +36,12 @@ public class Dungeon {
 
 
 
-    //Preset Map
+    /**
+     * Fills the map layout
+     *
+     * @param map -- the dungeon map
+     *
+     */
     private void GenMap(int[][] map){
         int[]layout = {6,0,0,0,2,3,0,
                        2,1,3,1,2,0,0,
@@ -50,6 +63,10 @@ public class Dungeon {
         }
 
     //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled; 5 - current position; 6 - Exit
+
+    /**
+     * 
+     */
     public static void printMap() {
         for (int[] r : dungeon) {
 

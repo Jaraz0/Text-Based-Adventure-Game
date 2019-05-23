@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 /**
- * Write a description of class here.
+ * This is the main driver class of DunJAM Explorer. It creates the player and enemies, and relies on Dungeon's move
+ * method for gameplay.
  *
  * @author (Jordan Mraz, Alec Henry, Michael Gery, Carter Casper)
  * @version (5/8/2019)
@@ -25,7 +26,7 @@ public class GameRun {
 
     public static void main (String[] args) {
 
-        //Variables and shizz
+        //Objects and more
         Scanner scan = new Scanner(System.in);
         Dungeon Map = new Dungeon();
 
@@ -60,6 +61,8 @@ public class GameRun {
 
         Map.CreateMap(7,7, lDogOG.getName());
 
+
+        //The main body of the game. Runs in a loop until player dies, letting them move around the map.
         while(lDogOG.getHealth() > 0) {
             Dungeon.dungeon[Player.y][Player.x] = 5;
             currentRoom = 5;

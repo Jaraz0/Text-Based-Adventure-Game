@@ -70,11 +70,23 @@ public class Player extends Entity {
         System.out.println("You gained "+ exp + "experience! \n Total Experience: " + super.getExperience());
     }
 
+    /**
+     * Sets the armor value
+     *
+     * @param a -- the amount to be added to armor
+     *
+     */
     public void setArmor(double a)
     {
         super.setArmor(this.getArmor() + a);
     }
 
+    /**
+     * Adds a specified amount to attack
+     *
+     * @param  b the amount to be added to attack
+     *
+     */
     public void setAttack(int b)
     {
         super.setAttack(this.getAttack() + b);
