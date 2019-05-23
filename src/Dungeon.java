@@ -65,7 +65,7 @@ public class Dungeon {
     //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled; 5 - current position; 6 - Exit
 
     /**
-     * 
+     * Prints out the dungeon map
      */
     public static void printMap() {
         for (int[] r : dungeon) {

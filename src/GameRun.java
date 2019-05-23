@@ -13,8 +13,7 @@ public class GameRun {
     public static int currentRoom;
     public static Enemy Buddy;
     public static Player lDogOG;
-    public static Enemy gremlin;
-    public static Enemy skeletonMinion;
+    public static Enemy[] enemies;
     public static Object starterSword;
     public static Object medSword;
     public static Object medhighSword;
@@ -29,14 +28,25 @@ public class GameRun {
         //Objects and more
         Scanner scan = new Scanner(System.in);
         Dungeon Map = new Dungeon();
+        enemies = new Enemy[7];
 
 
 
-        skeletonMinion = new Enemy(20, 5, 0.0, "Skeleton Archer", 5, 3);
+        enemies[0] = new Enemy(20, 5, 0.0, "Skeleton", 5, 3);
 
-        gremlin = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+        enemies[1] = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
 
-        Buddy = new Enemy (20, 7, 0.0 , "Cambion", 1000000, 3);
+        enemies[2] = new Enemy(30, 10, 0.0, "Buddy", 11, 2);
+
+        enemies[3] = new Enemy(60, 3, 0.0, "Big Al", 4, 2 );
+        enemies[4] = new Enemy(20, 5, 0.0, "Skeleton Archer", 5, 3);
+
+        enemies[5] = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+
+        enemies[6] = new Enemy (20, 7, 0.0 , "Cambion", 17, 3);
+
+
+        Buddy = new Enemy (10, 1, 0.0 , "MikeyG", 5, 3);
 
         starterSword = new Objects("Basic Sword", 5,0);
 
