@@ -12,21 +12,23 @@ public class GameRun {
     public static int currentRoom;
     public static Enemy Buddy;
     public static Player lDogOG;
-
+    public static Enemy[] enemies;
     public static void main (String[] args) {
 
         //Variables and shizz
         Scanner scan = new Scanner(System.in);
         Dungeon Map = new Dungeon();
+        enemies = new Enemy[7];
 
+        enemies[0] = new Enemy(20, 5, 0.0, "Skeleton", 5, 3);
+        enemies[1] = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+        enemies[2] = new Enemy(30, 10, 0.0, "Buddy", 11, 2);
+        enemies[3] = new Enemy(60, 3, 0.0, "Big Al", 4, 2 );
+        enemies[4] = new Enemy(20, 5, 0.0, "Skeleton Archer", 5, 3);
+        enemies[5] = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
+        enemies[6] = new Enemy (20, 7, 0.0 , "Cambion", 17, 3);
 
-
-        Enemy skeletonMinion = new Enemy(20, 5, 0.0, "Skeleton", 5, 3);
-
-        Enemy gremlin = new Enemy(40, 10, 0.0, "Gremlin", 15, 3 );
-
-        Buddy = new Enemy (10, 1, 0.0 , "MikeyG", 1000000, 3);
-
+        Buddy = new Enemy (10, 1, 0.0 , "MikeyG", 5, 3);
         Objects staterSword = new Objects("Basic Sword", 5,0);
 
         Objects medSword = new Objects("Iron Sword", 15, 0.0);
@@ -40,7 +42,7 @@ public class GameRun {
         System.out.print("Welcome to \"Please Give Us An A.\" What is your name?:\t");
 
 
-        lDogOG = new Player(100, 10, 20, scan.next());
+        lDogOG = new Player(100, 10, 1, scan.next());
 
         Map.CreateMap(7,7, lDogOG.getName());
 
