@@ -93,8 +93,9 @@ public class GameRun {
         else if (command.equalsIgnoreCase("map")){
             Dungeon.printMap();
         }
-        else if (command.equalsIgnoreCase("help")){
-            System.out.println("Available actions are: Move, Help, Map");
+        else if (command.equalsIgnoreCase("quit")){
+            System.out.println("\n--------------------------------------------------------------\nThanks for playing DunJAM\n--------------------------------------------------------------");
+            System.exit(0);
         }
         else System.out.println("Invalid Command");
     }
