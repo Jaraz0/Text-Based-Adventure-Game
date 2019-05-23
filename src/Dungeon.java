@@ -5,7 +5,7 @@
  * @version (5/8/2019)
  */
 import java.util.Scanner;
-public class Dungen_Gen {
+public class Dungeon {
 
     static Scanner scan = new Scanner(System.in);
     private static int row, col;
@@ -23,29 +23,35 @@ public class Dungen_Gen {
         dungeon = new int[row][col];
 
         GenMap(dungeon);
-        printMap(dungeon);
+
     }
 
 
 
     //Preset Map
     private void GenMap(int[][] map){
-
-        //test
-
-
-        map[3][1] = 5;
-        map[2][1] = 1;
-        map[1][1] = 2;
-        map[0][1] = 3;
+        int[]layout = {6,0,0,0,2,3,0,
+                       2,1,3,1,2,0,0,
+                       0,0,2,3,2,1,3,
+                       3,2,1,0,0,1,2,
+                       1,2,0,1,3,2,0,
+                       0,2,2,1,0,2,3,
+                       0,3,0,5,0,3,0,};
+        int possition = 0;
+        for (int y = 0; map.length > y; y++){
+            for (int x = 0; map[0].length > x; x++){
+                map[y][x] = layout[possition];
+                possition++;
+            }
+        }
 
         //map[(int)(Math.random() * Column)][(int)(Math.random() * Row)] = 2;
 
         }
 
-    //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled/empty; 5 - current position
-    public static void printMap(int[][] map) {
-        for (int[] r : map) {
+    //0 - wall; 1 - empty; 2 - enemy; 3 - loot; 4 - travelled; 5 - current position; 6 - Exit
+    public static void printMap() {
+        for (int[] r : dungeon) {
 
             //Draws top lines
             System.out.print(" ");
@@ -79,12 +85,13 @@ public class Dungen_Gen {
     }
 
     public static void move(){
-        System.out.println("Pick a direction to move: " + possibeMoves());
+        System.out.println("Pick a direction to move \"" + possibeMoves() +"\" :\t ");
         String choice = scan.next();
 
         //Up
 
         if(choice.equalsIgnoreCase("up") && (dungeon[Player.y - 1][Player.x] != 0)) {
+            dungeon[Player.y][Player.x] = 4;
             Player.y -= 1;
             if (dungeon[Player.y][Player.x] == 2) ; //fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
@@ -92,6 +99,7 @@ public class Dungen_Gen {
 
         //Down
         else if(choice.equalsIgnoreCase("down") && (dungeon[Player.y + 1][Player.x] != 0)) {
+            dungeon[Player.y][Player.x] = 4;
             Player.y += 1;
             if (dungeon[Player.y][Player.x] == 2) ; //fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
@@ -99,6 +107,7 @@ public class Dungen_Gen {
 
         //Left
         else if(choice.equalsIgnoreCase("left") && (dungeon[Player.y][Player.x - 1] != 0)) {
+            dungeon[Player.y][Player.x] = 4;
             Player.x -= 1;
             if (dungeon[Player.y][Player.x] == 2) ; //fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
@@ -106,6 +115,7 @@ public class Dungen_Gen {
 
         //Right
         else if(choice.equalsIgnoreCase("right") && (dungeon[Player.y][Player.x + 1] != 0)) {
+            dungeon[Player.y][Player.x] = 4;
             Player.x += 1;
             if (dungeon[Player.y][Player.x] == 2) ; //fight()
             if (dungeon[Player.y][Player.x] == 3) ; //loot()
@@ -117,8 +127,10 @@ public class Dungen_Gen {
 
         dungeon[Player.y][Player.x] = 5;
 
-        printMap(dungeon);
+        printMap();
     }
+
+
     public static String possibeMoves(){
             String possibleMoves = "";
 
